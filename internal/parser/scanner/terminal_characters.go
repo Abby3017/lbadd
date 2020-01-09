@@ -1,8 +1,10 @@
 package scanner
 
-import "github.com/tomarrell/lbadd/internal/parser/scanner/matcher"
+import (
+	"unicode"
 
-import "unicode"
+	"github.com/tomarrell/lbadd/internal/parser/scanner/matcher"
+)
 
 // A terminal character that is specified in the SQL specification.
 var (
