@@ -301,7 +301,7 @@ func (s *Scanner) acceptMultiple(m matcher.M) (matched uint) {
 //	input := []rune(".hello")
 //	...
 //	s.acceptString("hello") // will do nothing, as the next rune is '.'
-//	s.next()                // advance the position by one (next rune is not 'h')
+//	s.next()                // advance the position by one (next rune is now 'h')
 //	s.acceptString("hello") // will accept 5 runes, the scanner has reached its EOF now
 func (s *Scanner) acceptString(str string) bool {
 	chck := s.checkpoint()
