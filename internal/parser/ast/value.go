@@ -1161,7 +1161,7 @@ type (
 		Node
 
 		IntervalFactor    *IntervalFactor
-		IntervalTerm2     *IntervalTerm2
+		IntervalTerm2     *IntervalTerm
 		AsteriskOrSolidus token.Token
 		Factor            *Factor
 		Term              *Term
