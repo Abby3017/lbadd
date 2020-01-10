@@ -31,6 +31,12 @@ func NewStream() Stream {
 // available if necessary. However, it does NOT remove the element from the
 // stream.
 func (s *stream) Peek() Token {
+	/*
+		The godoc says that this method does not remove a token from the stream.
+		That is correct, considering that this object is the stream. However,
+		this method may remove a token from the stream's channel. This is a
+		subtle, but major difference.
+	*/
 	s.ensureNotClosed()
 	if s.peeked != nil {
 		return *s.peeked
