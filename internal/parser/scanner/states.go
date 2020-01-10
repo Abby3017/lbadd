@@ -53,6 +53,56 @@ func scanToken(s *Scanner) state {
 	panic("TODO")
 }
 
+/*
+	<space>
+	<double quote>
+	<percent>
+		<ampersand>
+		<quote>
+		<left paren>
+		<right paren>
+	<asterisk>
+	<plus sign>
+	<comma>
+	<minus sign>
+		<period>
+	<solidus>
+	<colon>
+	<semicolon>
+	<less than operator>
+	<equals operator>
+	<greater than operator>
+		<question mark>
+		<left bracket>
+		<right bracket>
+	<circumflex>
+	<underscore>
+	<vertical bar>
+	<left brace>
+	<right brace>
+	<dollar sign>
+	<apostrophe>
+*/
+
+func scanSpace(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Space) {
+		s.restore(chck)
+		return errorExpected(Space)
+	}
+	return nil
+}
+
+func scanDoubleQuoteSymbol(s *Scanner) state {
+	if s.accept(DoubleQuote) {
+		if s.accept(DoubleQuote) {
+			return nil
+		}
+	}
+	return errorExpected(Quote)
+}
+
 func scanLeftBracketOrTrigraph(s *Scanner) state {
 	if s.accept(LeftParen) {
 		return nil
@@ -184,15 +234,6 @@ func scanDelimitedIdentifierPart(s *Scanner) state {
 	return errorExpected("non DoubleQuote character (current implementation: SimpleLatinCharacter) or \"\"")
 }
 
-func scanDoubleQuoteSymbol(s *Scanner) state {
-	if s.accept(DoubleQuote) {
-		if s.accept(DoubleQuote) {
-			return nil
-		}
-	}
-	return errorExpected(Quote)
-}
-
 func scanUnicodeDelimitedIdentifier(s *Scanner) state {
 	chck := s.checkpoint()
 
@@ -226,5 +267,185 @@ func scanUnicodeDelimitedIdentifier(s *Scanner) state {
 	// 	return next
 	// }
 
+	return nil
+}
+
+func scanPercent(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Percent) {
+		s.restore(chck)
+		return errorExpected(Percent)
+	}
+	return nil
+}
+
+func scanAsterisk(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Asterisk) {
+		s.restore(chck)
+		return errorExpected(Asterisk)
+	}
+	return nil
+}
+
+func scanPlusSign(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(PlusSign) {
+		s.restore(chck)
+		return errorExpected(PlusSign)
+	}
+	return nil
+}
+
+func scanComma(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Comma) {
+		s.restore(chck)
+		return errorExpected(Comma)
+	}
+	return nil
+}
+
+func scanMinusSign(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(MinusSign) {
+		s.restore(chck)
+		return errorExpected(MinusSign)
+	}
+	return nil
+}
+
+func scanSolidus(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Solidus) {
+		s.restore(chck)
+		return errorExpected(Solidus)
+	}
+	return nil
+}
+
+func scanColon(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Colon) {
+		s.restore(chck)
+		return errorExpected(Colon)
+	}
+	return nil
+}
+
+func scanSemicolon(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Semicolon) {
+		s.restore(chck)
+		return errorExpected(Semicolon)
+	}
+	return nil
+}
+
+func scanGreaterThanOperator(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(GreaterThanOperator) {
+		s.restore(chck)
+		return errorExpected(GreaterThanOperator)
+	}
+	return nil
+}
+
+func scanEqualsOperator(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(EqualsOperator) {
+		s.restore(chck)
+		return errorExpected(EqualsOperator)
+	}
+	return nil
+}
+
+func scanLessThanOperator(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(LessThanOperator) {
+		s.restore(chck)
+		return errorExpected(LessThanOperator)
+	}
+	return nil
+}
+
+func scanCircumflex(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Circumflex) {
+		s.restore(chck)
+		return errorExpected(Circumflex)
+	}
+	return nil
+}
+
+func scanUnderscore(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Underscore) {
+		s.restore(chck)
+		return errorExpected(Underscore)
+	}
+	return nil
+}
+
+func scanVerticalBar(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(VerticalBar) {
+		s.restore(chck)
+		return errorExpected(VerticalBar)
+	}
+	return nil
+}
+
+func scanLeftBrace(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(LeftBrace) {
+		s.restore(chck)
+		return errorExpected(LeftBrace)
+	}
+	return nil
+}
+
+func scanRightBrace(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(RightBrace) {
+		s.restore(chck)
+		return errorExpected(RightBrace)
+	}
+	return nil
+}
+
+func scanDollarSign(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(DollarSign) {
+		s.restore(chck)
+		return errorExpected(DollarSign)
+	}
+	return nil
+}
+
+func scanApostrophe(s *Scanner) state {
+	chck := s.checkpoint()
+
+	if !s.accept(Apostrophe) {
+		s.restore(chck)
+		return errorExpected(Apostrophe)
+	}
 	return nil
 }
