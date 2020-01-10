@@ -1379,7 +1379,7 @@ type (
 
 // 6.44 multiset value function
 type (
-	MultisetValueFucntion struct {
+	MultisetValueFunction struct {
 		Node
 
 		MultisetSetFunction *MultisetSetFunction
