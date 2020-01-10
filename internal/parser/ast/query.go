@@ -20,14 +20,6 @@ type (
 		FetchFirstClause    *FetchFirstClause
 	}
 
-	QueryName struct {
-		Node
-
-		Identifier Identifier
-	}
-
-	Identifier string
-
 	QueryExpressionBody struct {
 		Node
 
@@ -87,12 +79,6 @@ type (
 
 	CorrespondingColumnList struct {
 		Node
-	}
-
-	ColumnName struct {
-		Node
-
-		Identifier Identifier
 	}
 
 	OrderByClause struct {
@@ -188,7 +174,7 @@ type (
 	AsteriskedIdentifier struct {
 		Node
 
-		Identifier Identifier
+		Identifier *Identifier
 	}
 
 	DerivedColumn struct {
@@ -224,4 +210,4 @@ type (
 	}
 )
 
-func (i Identifier) String() string { return string(i) }
+func (i *Identifier) String() string { return string(i) }

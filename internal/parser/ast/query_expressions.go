@@ -645,4 +645,22 @@ type (
 		RowPatternSubsetRhs              *RowPatternSubsetRhs
 		RightParen                       token.Token
 	}
+
+	RowPatternSubsetItemVariableName struct {
+		Node
+
+		RowPatternVariableName *RowPatternVariableName
+	}
+
+	RowPatternSubsetRhs struct {
+		Node
+
+		RowPatternSubsetRhsVariableName []*RowPatternSubsetRhsVariableName
+	}
+
+	RowPatternSubsetRhsVariableName struct {
+		Node
+
+		RowPatternVariableName *RowPatternVariableName
+	}
 )
