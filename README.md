@@ -37,7 +37,7 @@ LBADD aims to replicate these in a single project. LBADD doesn't aim to be nearl
 * Go >= `1.13`
 
 ## Contributing
-Contributors are more than welcome and much appreciated. Please feel free to open a PR to improve anything you don't like, or would like to add. No PR is too small!
+Contributors are more than welcome and much appreciated. Please feel free to open a PR to improve anything you don't like, or would like to add. No PR is too small! Go check out our [contributing guide](./CONTRIBUTING.md) for more detailed info about how to get started with a contribution.
 
 ## License
 This project is licensed under the MIT license.
